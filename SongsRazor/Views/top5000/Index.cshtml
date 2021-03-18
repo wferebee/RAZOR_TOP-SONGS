@@ -1,0 +1,76 @@
+﻿@model IEnumerable<SongsRazor.Models.top5000>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.artist)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.song)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.raw_total)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.raw_usa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.raw_uk)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.raw_eur)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.raw_row)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.artist)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.song)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.year)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.raw_total)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.raw_usa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.raw_uk)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.raw_eur)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.raw_row)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.position }) |
+            @Html.ActionLink("Details", "Details", new { id=item.position }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.position })
+        </td>
+    </tr>
+}
+
+</table>

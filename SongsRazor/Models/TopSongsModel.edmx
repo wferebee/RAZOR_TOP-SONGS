@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="top_songsdbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="8.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="top_albums">
+          <Key>
+            <PropertyRef Name="position" />
+          </Key>
+          <Property Name="position" Type="int" Nullable="false" />
+          <Property Name="artist" Type="varchar" MaxLength="100" />
+          <Property Name="album" Type="varchar" MaxLength="100" />
+          <Property Name="year" Type="int" />
+          <Property Name="raw_total" Type="decimal" Precision="10" Scale="4" />
+          <Property Name="raw_usa" Type="decimal" Precision="10" Scale="4" />
+          <Property Name="raw_uk" Type="decimal" Precision="10" Scale="4" />
+          <Property Name="raw_eur" Type="decimal" Precision="10" Scale="4" />
+          <Property Name="raw_row" Type="decimal" Precision="10" Scale="4" />
+        </EntityType>
+        <EntityType Name="top5000">
+          <Key>
+            <PropertyRef Name="position" />
+          </Key>
+          <Property Name="position" Type="int" Nullable="false" />
+          <Property Name="artist" Type="varchar" MaxLength="100" />
+          <Property Name="song" Type="varchar" MaxLength="100" />
+          <Property Name="year" Type="int" />
+          <Property Name="raw_total" Type="decimal" Precision="10" Scale="4" />
+          <Property Name="raw_usa" Type="decimal" Precision="10" Scale="4" />
+          <Property Name="raw_uk" Type="decimal" Precision="10" Scale="4" />
+          <Property Name="raw_eur" Type="decimal" Precision="10" Scale="4" />
+          <Property Name="raw_row" Type="decimal" Precision="10" Scale="4" />
+        </EntityType>
+        <EntityContainer Name="top_songsdbModelStoreContainer">
+          <EntitySet Name="top_albums" EntityType="Self.top_albums" Schema="top_songsdb" store:Type="Tables" />
+          <EntitySet Name="top5000" EntityType="Self.top5000" Schema="top_songsdb" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="top_songsdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="top_albums">
+          <Key>
+            <PropertyRef Name="position" />
+          </Key>
+          <Property Name="position" Type="Int32" Nullable="false" />
+          <Property Name="artist" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="album" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="year" Type="Int32" />
+          <Property Name="raw_total" Type="Decimal" />
+          <Property Name="raw_usa" Type="Decimal" />
+          <Property Name="raw_uk" Type="Decimal" />
+          <Property Name="raw_eur" Type="Decimal" />
+          <Property Name="raw_row" Type="Decimal" />
+        </EntityType>
+        <EntityType Name="top5000">
+          <Key>
+            <PropertyRef Name="position" />
+          </Key>
+          <Property Name="position" Type="Int32" Nullable="false" />
+          <Property Name="artist" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="song" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="year" Type="Int32" />
+          <Property Name="raw_total" Type="Decimal" />
+          <Property Name="raw_usa" Type="Decimal" />
+          <Property Name="raw_uk" Type="Decimal" />
+          <Property Name="raw_eur" Type="Decimal" />
+          <Property Name="raw_row" Type="Decimal" />
+        </EntityType>
+        <EntityContainer Name="top_songsdbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="top_albums" EntityType="Self.top_albums" />
+          <EntitySet Name="top5000" EntityType="Self.top5000" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="top_songsdbModelStoreContainer" CdmEntityContainer="top_songsdbEntities">
+          <EntitySetMapping Name="top_albums">
+            <EntityTypeMapping TypeName="top_songsdbModel.top_albums">
+              <MappingFragment StoreEntitySet="top_albums">
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="artist" ColumnName="artist" />
+                <ScalarProperty Name="album" ColumnName="album" />
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="raw_total" ColumnName="raw_total" />
+                <ScalarProperty Name="raw_usa" ColumnName="raw_usa" />
+                <ScalarProperty Name="raw_uk" ColumnName="raw_uk" />
+                <ScalarProperty Name="raw_eur" ColumnName="raw_eur" />
+                <ScalarProperty Name="raw_row" ColumnName="raw_row" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="top5000">
+            <EntityTypeMapping TypeName="top_songsdbModel.top5000">
+              <MappingFragment StoreEntitySet="top5000">
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="artist" ColumnName="artist" />
+                <ScalarProperty Name="song" ColumnName="song" />
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="raw_total" ColumnName="raw_total" />
+                <ScalarProperty Name="raw_usa" ColumnName="raw_usa" />
+                <ScalarProperty Name="raw_uk" ColumnName="raw_uk" />
+                <ScalarProperty Name="raw_eur" ColumnName="raw_eur" />
+                <ScalarProperty Name="raw_row" ColumnName="raw_row" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

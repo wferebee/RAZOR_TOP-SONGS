@@ -1,0 +1,89 @@
+﻿@model SongsRazor.Models.top5000
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>top5000</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.artist)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.artist)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.song)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.song)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.raw_total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.raw_total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.raw_usa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.raw_usa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.raw_uk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.raw_uk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.raw_eur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.raw_eur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.raw_row)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.raw_row)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
